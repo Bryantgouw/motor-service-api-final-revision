@@ -8,11 +8,14 @@ ENV PYTHONUNBUFFERED=1
 # Update sistem dan install git
 RUN apt-get update && apt-get install -y git
 
-# Set working directory
+# Tentukan working directory dalam container
 WORKDIR /app
 
-# Salin semua file dari direktori lokal ke dalam container
-COPY . /app
+# Clone repository dari GitHub
+RUN git clone https://github.com/Bryantgouw/motor-service-api-final-revision.git
+
+# Masuk ke direktori project setelah clone
+WORKDIR /app/motor-service-api-final-revision
 
 # Install dependencies dari requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
