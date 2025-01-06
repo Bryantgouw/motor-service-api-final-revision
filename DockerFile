@@ -1,20 +1,24 @@
+# Gunakan base image Python versi 3.12
 FROM python:3.12
 
+# Nonaktifkan bytecode dan buffer output Python
 ENV PYTHONDONTWRITEBYTECODE=1  
 ENV PYTHONUNBUFFERED=1         
 
+# Update sistem dan install git
 RUN apt-get update && apt-get install -y git
 
+# Set working directory
 WORKDIR /app
 
-# Clone the repository and set the working directory to it
-RUN git clone https://github.com/Bryantgouw/motor-service-api-final-revision.git /app/motor-service-api-final-revision
-WORKDIR /app/motor-service-api-final-revision
+# Salin semua file dari direktori lokal ke dalam container
+COPY . /app
 
-# Install dependencies
+# Install dependencies dari requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Ekspos port aplikasi
 EXPOSE 8033
 
-# Set the default command to run the service
+# Set perintah default untuk menjalankan aplikasi
 CMD ["uvicorn", "service:app", "--host", "0.0.0.0", "--port", "8033"]
