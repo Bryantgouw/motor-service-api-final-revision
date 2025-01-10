@@ -13,9 +13,10 @@ https://gomorseapi.codebloop.my.id/docs
 ## API Authentication
 
 #### Login
+
 Login diperlukan untuk mengenerate terhadap JWT Token yang nantinya akan digunakan untuk mengakses endpoint API lain
 
-```http
+```https
   POST /api/v1/auth/login
 ```
 
@@ -27,7 +28,53 @@ Requested Body
 }
 ```
 
+*Asumsi username dan password static. Gunakan Username = user dan Password = gomorse123.
+
+Example Response Body
+```json
+{
+  "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmF0aW9uIjoxNzM2NTI2NDI2LCJpc3N1ZWRfYXQiOjE3MzY1MjYxMjYsInVzZXJfaWQiOiJ1c2VyIn0.zHSMosYG0gvmFlqB55_NKyzCNja1nRDVmdhNKJJqnDw"
+}
+```
+
 ## API Endpoints
+
+*Asumsi API Key static. Gunakan x-api-key = gomorse123
+
+#### Get Service Locations (All)
+Mendapatkan seluruh tempat servis atau bengkel motor yang available
+
+```https
+  GET /api/v1/service-locations
+```
+
+#### Get Service Locations (Spesific Location ID)
+Mendapatkan tempat servis atau bengkel motor yang available berdasarkan location ID
+
+```https
+  GET /api/v1/service-locations/{loc_id}
+```
+
+#### Get Ongkir Fee Calculation
+Mendapatkan hasil perhitungan dari ongkos kirim berdasarkan total jarak dan tipe kendaraan untuk servis yang dipilih
+
+```https
+  GET /api/v1/ongkir-fee-calculation
+```
+
+#### Post Service Fee Calculation
+Mendapatkan hasil perhitungan dari biaya servis berdasarkan tipe servis yang digunakan dan biaya tambahan yang harus dikeluarkan
+
+```https
+  GET /api/v1/service-fee-calculation
+```
+
+#### Get Nearest Store
+Mendapatkan lokasi servis motor atau bengkel terdekat berdasarkan input lokasi pengguna saat ini
+
+```https
+  GET /api/v1/nearest-store
+```
 
 ## API Errors
 
