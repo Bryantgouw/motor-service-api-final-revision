@@ -47,6 +47,11 @@ Mendapatkan seluruh tempat servis atau bengkel motor yang available
 ```https
   GET /api/v1/service-locations
 ```
+Headers
+| Parameter | Value    | 
+| :-------- | :------- | 
+| `x-api-key`      | API KEY | 
+| `Authorization` | bearer {JWT Token} |
 
 #### Get Service Locations (Spesific Location ID)
 Mendapatkan tempat servis atau bengkel motor yang available berdasarkan location ID
@@ -55,6 +60,12 @@ Mendapatkan tempat servis atau bengkel motor yang available berdasarkan location
   GET /api/v1/service-locations/{loc_id}
 ```
 
+Headers
+| Parameter | Value    | 
+| :-------- | :------- | 
+| `x-api-key`      | API KEY | 
+| `Authorization` | bearer {JWT Token} |
+
 #### Get Ongkir Fee Calculation
 Mendapatkan hasil perhitungan dari ongkos kirim berdasarkan total jarak dan tipe kendaraan untuk servis yang dipilih
 
@@ -62,12 +73,24 @@ Mendapatkan hasil perhitungan dari ongkos kirim berdasarkan total jarak dan tipe
   GET /api/v1/ongkir-fee-calculation
 ```
 
+Headers
+| Parameter | Value    | 
+| :-------- | :------- | 
+| `x-api-key`      | API KEY | 
+| `Authorization` | bearer {JWT Token} |
+
 #### Post Service Fee Calculation
 Mendapatkan hasil perhitungan dari biaya servis berdasarkan tipe servis yang digunakan dan biaya tambahan yang harus dikeluarkan
 
 ```https
-  GET /api/v1/service-fee-calculation
+  POST /api/v1/service-fee-calculation
 ```
+
+Headers
+| Parameter | Value    | 
+| :-------- | :------- | 
+| `x-api-key`      | API KEY | 
+| `Authorization` | bearer {JWT Token} |
 
 #### Get Nearest Store
 Mendapatkan lokasi servis motor atau bengkel terdekat berdasarkan input lokasi pengguna saat ini
@@ -75,6 +98,12 @@ Mendapatkan lokasi servis motor atau bengkel terdekat berdasarkan input lokasi p
 ```https
   GET /api/v1/nearest-store
 ```
+
+Headers
+| Parameter | Value    | 
+| :-------- | :------- | 
+| `x-api-key`      | API KEY | 
+| `Authorization` | bearer {JWT Token} |
 
 ## API Errors
 
